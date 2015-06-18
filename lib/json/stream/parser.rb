@@ -92,14 +92,14 @@ module JSON
         @state = :start_document
         @utf8 = Buffer.new
         @listeners = {
-          start_document: [],
-          end_document: [],
-          start_object: [],
-          end_object: [],
-          start_array: [],
-          end_array: [],
-          key: [],
-          value: []
+          :start_document => [],
+          :end_document => [],
+          :start_object => [],
+          :end_object => [],
+          :start_array => [],
+          :end_array => [],
+          :key => [],
+          :value => []
         }
 
         # Track parse stack.

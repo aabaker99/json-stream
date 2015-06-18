@@ -10,6 +10,11 @@ memory. This is best suited for huge JSON documents that won't fit in memory.
 For example, streaming and processing large map/reduce views from Apache
 CouchDB.
 
+## Fork
+
+This fork drops the Ruby version dependency to 1.8 by removing some Encoding 
+core library features and modifying some Hash literal syntax.
+
 ## Usage
 
 The simplest way to parse is to read the full JSON document into memory
@@ -79,8 +84,7 @@ network, can be processed in constant memory space this way.
 
 ## Dependencies
 
-* ruby >= 1.9.2
-* jruby >= 1.7
+* ruby >= 1.8.7
 
 ## Alternatives
 

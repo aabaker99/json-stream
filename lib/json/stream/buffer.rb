@@ -31,8 +31,7 @@ module JSON
       def <<(data)
         # Avoid state machine for complete UTF-8.
         if @buffer.empty?
-          data.force_encoding(Encoding::UTF_8)
-          return data if data.valid_encoding?
+          return data
         end
 
         bytes = []
@@ -64,11 +63,6 @@ module JSON
               error('Expected continuation byte')
             end
           end
-        end
-
-        # Build UTF-8 encoded string from completed codepoints.
-        bytes.pack('C*').force_encoding(Encoding::UTF_8).tap do |text|
-          error('Invalid UTF-8 byte sequence') unless text.valid_encoding?
         end
       end
 
